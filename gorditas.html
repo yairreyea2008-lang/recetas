@@ -157,7 +157,6 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.35);
     }
 
-    /* Dark Mode */
     .dark-mode {
       background: #212121;
       color: #f5f5f5;
@@ -172,7 +171,6 @@
       color: #fff;
     }
 
-    /* Responsive */
     @media(min-width:769px){
       nav ul {
         position: static;
@@ -200,7 +198,7 @@
 
   <nav>
     <ul id="nav-links">
-      <li><a href="rect.html">Inicio</a></li>
+      <li><a href="index.html">Inicio</a></li>
       <li><a href="gorditas.html">Gorditas</a></li>
       <li><a href="pai.html">Pai</a></li>
       <li><a href="pozoncle.html">Pozoncle</a></li>
@@ -232,18 +230,17 @@
     </p>
   </div>
 
-  <a href="rect.html" class="volver">⬅ Volver al inicio</a>
+  <a href="index.html" class="volver">⬅ Volver al inicio</a>
 </main>
 
 <script>
-  // Menú hamburguesa
+ 
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
 
-  // Dark mode
   const darkToggle = document.getElementById('dark-mode-toggle');
   darkToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
