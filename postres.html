@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recetas de Postres</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+      color: #333;
+    }
+    header { background: rgba(0,0,0,0.6); color:#fff; padding:25px; text-align:center; font-size:2rem; }
+    .contenedor { padding:30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
+    .receta { background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.2); transition:transform 0.3s, box-shadow 0.3s; }
+    .receta:hover { transform:scale(1.05); box-shadow:0 12px 25px rgba(0,0,0,0.3); }
+    .receta h2 { color:#c2185b; }
+    .volver { display:block; margin:30px auto; padding:12px 20px; background:#c2185b; color:#fff; text-decoration:none; border-radius:8px; font-weight:bold; width:fit-content; }
+    .volver:hover { background:#880e4f; }
+    footer { text-align:center; padding:15px; margin-top:20px; background:rgba(0,0,0,0.6); color:#fff; }
+  </style>
+</head>
+<body>
+  <header>🍰 Recetas de Postres</header>
+  <main class="contenedor">
+    <div class="receta"><h2>Pastel de Chocolate</h2><p>Ingredientes: harina, cacao, huevos, leche, mantequilla, azúcar.</p></div>
+    <div class="receta"><h2>Flan Napolitano</h2><p>Ingredientes: leche condensada, leche evaporada, huevos, caramelo.</p></div>
+  </main>
+  <a href="rect.html" class="volver">⬅ Volver al inicio</a>
+  <footer>yir</footer>
+</body>
+</html>

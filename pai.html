@@ -1,43 +1,256 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pai de Galleta</title>
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay de Limón</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #fff9c4, #ffe082);
+      color: #333;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: linear-gradient(90deg,#ffeb3b,#fbc02d,#ffca28);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    nav ul {
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #f57c00;
+      width: 200px;
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+    }
+
+    nav ul li {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #fff9c4;
+    }
+
+    nav ul.active {
+      display: flex;
+    }
+
+    .menu-toggle {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .dark-mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    /* CONTENIDO */
+    .contenedor {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .receta {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .receta:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    }
+
+    h2 {
+      color: #d84315;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #388e3c;
+      margin-top: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 20px;
+      background: #f57c00;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .volver:hover {
+      background: #e65100;
+    }
+
+    /* GALERÍA */
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .galeria img {
+      width: 300px;       
+      height: 200px;      
+      object-fit: cover;  
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    }
+
+    /* DARK MODE */
+    .dark-mode {
+      background: #212121;
+      color: #f5f5f5;
+    }
+
+    .dark-mode header {
+      background: #000;
+    }
+
+    .dark-mode .receta {
+      background: #333;
+      color: #fff;
+    }
+
+    /* RESPONSIVE */
+    @media(min-width:769px){
+      nav ul {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        background: none;
+        width: auto;
+        gap: 20px;
+      }
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Receta de Pai de Galleta</h1>
-    </header>
 
-    <main>
-        <section>
-            <h2>Ingredientes</h2>
-            <ul>
-                <li>200 g de galletas María</li>
-                <li>100 g de mantequilla derretida</li>
-                <li>1 lata de leche condensada</li>
-                <li>Jugo de 4 limones</li>
-            </ul>
-        </section>
+<header>
+  <div class="logo">🍋 Pay de Limón</div>
 
-        <section>
-            <h2>Preparación</h2>
-            <p>Tritura las galletas y mézclalas con la mantequilla. Coloca en un molde formando la base. Mezcla la leche condensada con el jugo de limón y vierte sobre la base. Refrigera por al menos 2 horas.</p>
-            <img src="pai1.jpeg" alt="Porción de pai de galleta servido">
-        </section>
+  <div class="nav-actions">
+    <button class="dark-mode-toggle" id="dark-mode-toggle">🌙</button>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  </div>
 
-        <h2>¿algo rico para sorprender a tu suegra?</h2>
-            <p>el pai es perfecto si quieres hacer una receta muy deliciosa y que no necesitas estudiar gastronomia para hacerla</p>
-            <img src="pai2.jpeg" alt="Porción de pai de galleta servido">
-        </section>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="rect.html">Inicio</a></li>
+      <li><a href="gorditas.html">Gorditas</a></li>
+      <li><a href="pai.html">Pai</a></li>
+      <li><a href="pozoncle.html">Pozoncle</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <a class="boton-volver" href="rect.html" title="Volver al inicio">⬅ Volver al inicio</a>
-    </main>
+<main class="contenedor">
+  <div class="galeria">
+    <img src="pai2.jpeg" alt="Pay de Limón">
+    <img src="pai1.jpeg" alt="Pay de Limón">
+  </div>
 
-    <footer>
-        <p>yir</p>
-    </footer>
+  <div class="receta">
+    <h2>Pay de Limón Casero</h2>
+    <h3>Ingredientes</h3>
+    <ul>
+      <li>1 lata de leche condensada</li>
+      <li>1 lata de leche evaporada</li>
+      <li>1/2 taza de jugo de limón</li>
+      <li>Galletas María</li>
+    </ul>
+    <h3>Preparación</h3>
+    <p>
+      Licúa las leches con el jugo de limón hasta que espese.  
+      En un refractario coloca una capa de galletas y otra de la mezcla.  
+      Repite hasta llenar el molde.  
+      Refrigera al menos 2 horas y sirve frío.  
+    </p>
+  </div>
+
+  <a href="rect.html" class="volver">⬅ Volver al inicio</a>
+</main>
+
+<script>
+  // Menú hamburguesa
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Dark mode
+  const darkToggle = document.getElementById('dark-mode-toggle');
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+
 </body>
 </html>

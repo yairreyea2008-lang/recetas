@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recetas de Ensaladas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #c8e6c9, #81c784);
+      color: #333;
+    }
+
+    header {
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 25px;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contenedor {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .receta {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .receta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    .receta h2 { color: #2e7d32; }
+
+    .volver {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 20px;
+      background: #2e7d32;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      width: fit-content;
+      transition: background 0.3s;
+    }
+
+    .volver:hover { background: #1b5e20; }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>🥗 Recetas de Ensaladas</header>
+
+  <main class="contenedor">
+    <div class="receta">
+      <h2>Ensalada César</h2>
+      <p>Ingredientes: lechuga romana, pollo, crutones, parmesano, aderezo césar.</p>
+    </div>
+
+    <div class="receta">
+      <h2>Ensalada de Frutas</h2>
+      <p>Ingredientes: manzana, plátano, fresa, mango, miel y limón.</p>
+    </div>
+  </main>
+
+  <a href="rect.html" class="volver">⬅ Volver al inicio</a>
+  <footer>yir</footer>
+</body>
+</html>

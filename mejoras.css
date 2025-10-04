@@ -1,0 +1,605 @@
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  transition: background 0.4s, color 0.4s;
+}
+
+/* ================= HEADER ================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(90deg, #845ec2, #ff6f91, #f9f871);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  letter-spacing: 1px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.menu-toggle, .dark-mode-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover, .dark-mode-toggle:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* ================= HERO ================= */
+#hero {
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("arca.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.6);
+  animation: fondoBreath 15s ease-in-out infinite alternate;
+  transition: background-position 0.2s ease;
+}
+
+.hero-contenido h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  animation: textoBrilla 3s ease-in-out infinite alternate, typing 4s steps(30,end) forwards, blink 0.8s infinite;
+  border-right: 3px solid rgba(255,255,255,0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.hero-contenido p {
+  font-size: 1.4rem;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSub 2s ease 4s forwards;
+  text-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.hero-contenido .btn {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(270deg,#ff6f91,#845ec2,#f9f871);
+  background-size: 600% 600%;
+  animation: gradientMove 6s ease infinite;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.hero-contenido .btn:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== PARTICULAS ===== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255,255,255,0.35);
+  animation: floatUp linear infinite;
+}
+
+/* ================= TARJETAS ================= */
+.tarjetas {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-15px) rotate(-1deg);
+  box-shadow: 0 25px 35px rgba(0,0,0,0.3);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tarjeta:hover img {
+  transform: scale(1.1);
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: gold;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* ================= CATEGORÍAS ================= */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.categoria {
+  padding: 30px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.5s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.categoria:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg,#a1c4fd,#c2e9fb,#fbc2eb);
+}
+
+/* ================= SOBRE MÍ ================= */
+#sobre-mi {
+  padding: 60px 20px;
+  background: #fefefe;
+  text-align: center;
+}
+
+.foto-chef {
+  max-width: 220px;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.foto-chef:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+}
+
+/* ================= NEWSLETTER ================= */
+#newsletter input {
+  width: 280px;
+  padding: 12px 15px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+#newsletter input:focus {
+  border-color: #ff6f91;
+  box-shadow: 0 0 10px rgba(255,111,145,0.5);
+}
+
+#newsletter button {
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#newsletter button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(255,111,145,0.4);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.redes-footer a {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0 12px;
+  transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
+}
+
+.redes-footer a:hover {
+  transform: scale(1.4) rotate(-10deg);
+  filter: brightness(1.5);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* ================= ANIMACIONES ================= */
+@keyframes textoBrilla {
+  0% { text-shadow: 0 0 5px #fff,0 0 10px #ff6f91,0 0 20px #845ec2; transform: scale(1); }
+  100% { text-shadow: 0 0 20px #fff,0 0 40px #ff6f91,0 0 60px #845ec2; transform: scale(1.05); }
+}
+
+@keyframes fadeSub {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing { from { width:0; } to { width:100%; } }
+@keyframes blink { 0%,50%{border-color:rgba(255,255,255,0.75);}51%,100%{border-color:transparent;} }
+
+@keyframes pulseGlow { 0%,100%{box-shadow:0 0 15px rgba(255,111,145,0.6);}50%{box-shadow:0 0 30px rgba(132,94,194,0.9);} }
+
+@keyframes fondoBreath { from{background-size:100%;} to{background-size:110%;} }
+
+@keyframes floatUp { from{transform:translateY(100vh) scale(0.5); opacity:1;} to{transform:translateY(-10vh) scale(1.2); opacity:0;} }
+
+@keyframes gradientMove {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* ================= DARK MODE ================= */
+body.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode header {
+  background: linear-gradient(90deg,#222,#444,#222);
+}
+
+body.dark-mode .tarjeta {
+  background: #1a1a1a;
+  color: #f1f1f1;
+}
+
+body.dark-mode .categoria {
+  background: linear-gradient(135deg,#444,#222);
+  color: #f1f1f1;
+}
+
+body.dark-mode #sobre-mi {
+  background: #1e1e1e;
+}
+
+body.dark-mode #newsletter {
+  background: #222;
+}
+
+body.dark-mode footer {
+  background: #111;
+}
+/* ===================== */
+/* MENÚ MÓVIL CORRECTO   */
+/* ===================== */
+
+/* Asegura que el menú se muestre solo cuando tiene .active */
+#nav-links.active {
+  display: flex !important;
+  flex-direction: column !important;
+  position: absolute !important;
+  top: 60px !important;
+  right: 0 !important;
+  width: 200px !important;
+  background: linear-gradient(90deg, #845ec2, #ff6f91) !important;
+  border-radius: 8px !important;
+  list-style: none !important;
+  padding: 10px 0 !important;
+  z-index: 999 !important;
+}
+
+/* Cada item centrado */
+#nav-links.active li {
+  text-align: center !important;
+  padding: 10px 0 !important;
+}
+
+/* En escritorio el menú siempre visible y horizontal */
+@media(min-width: 769px) {
+  #nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    position: static !important;
+    width: auto !important;
+    background: none !important;
+    gap: 20px !important;
+  }
+
+  #menu-toggle {
+    display: none !important;
+  }
+}
+/* MENÚ MÓVIL - inicio cerrado */
+#nav-links {
+  display: none; /* Siempre cerrado por defecto */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: linear-gradient(90deg, #845ec2, #ff6f91);
+  width: 200px;
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+#nav-links.active {
+  display: flex; /* Se abre solo cuando tiene .active */
+}
+
+/* Items centrados */
+#nav-links li {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Desktop: menú siempre visible */
+@media (min-width: 769px) {
+  #nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    position: static !important;
+    width: auto !important;
+    background: none !important;
+    gap: 20px !important;
+  }
+
+  #menu-toggle {
+    display: none !important;
+  }
+}
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* siempre encima del menú */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(90deg, #845ec2, #ff6f91, #f9f871);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Menú de navegación */
+nav {
+  position: relative; /* importante para el z-index de los links */
+}
+
+#nav-links {
+  display: none; 
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* justo debajo del header */
+  right: 0;
+  background: linear-gradient(90deg, #845ec2, #ff6f91);
+  width: 200px;
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px 0;
+  z-index: 900; /* debajo del header */
+}
+
+/* Cuando se activa el menú */
+#nav-links.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos de los items del menú */
+#nav-links li {
+  text-align: center;
+  padding: 10px 0;
+}
+
+#nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#nav-links li a:hover {
+  color: #ffe0b2;
+}
+
+/* Botones visibles siempre encima */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 1001; /* encima del menú */
+  position: relative;
+}
+
+/* Botón menú móvil */
+.menu-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1001; /* encima del menú */
+}
+
+/* Dark mode toggle */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1001; /* encima del menú */
+}
+
+/* Media query escritorio */
+@media(min-width:769px){
+  #nav-links {
+    position: static;
+    display: flex !important; /* siempre visible en desktop */
+    flex-direction: row;
+    background: none;
+    width: auto;
+    gap: 20px;
+  }
+
+  .menu-toggle { display: none; }
+} 
+/* ================= REDES SOCIALES FOOTER MEJORADOS ================= */
+.redes-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.redes-footer a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px; /* un poco más grande */
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.redes-footer a img {
+  width: 60px; /* más grande para ver bien */
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Hover efecto flotante */
+.redes-footer a:hover {
+  transform: scale(1.4) translateY(-5px) rotate(-5deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+/* --- FIX: typing medido y fallback móvil --- */
+/* Clase que usaremos cuando JS active la animación medida */
+.hero-contenido h1.do-typing {
+  display: inline-block;               /* necesario para medir correctamente */
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;                             /* empieza oculto */
+  border-right: 3px solid rgba(255,255,255,0.75);
+  /* Usamos la animación medida (var: --textWidth, --typingDuration, --typingSteps) */
+  animation:
+    textoBrilla 3s ease-in-out infinite alternate,
+    typingFixed var(--typingDuration, 4s) steps(var(--typingSteps, 30), end) forwards,
+    blink 0.8s infinite !important;
+}
+
+/* Keyframes específicos para la animación medida (evita tocar tu 'typing' original) */
+@keyframes typingFixed {
+  from { width: 0; }
+  to   { width: var(--textWidth); }
+}
+
+/* Respeta prefer-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-contenido h1.do-typing,
+  .hero-contenido h1 {
+    animation: none !important;
+    width: auto !important;
+    border-right: none !important;
+    white-space: normal !important;
+  }
+}
+
+/* Fallback para pantallas muy pequeñas: evita la animación y permite wrap */
+@media (max-width: 420px) {
+  .hero-contenido h1.do-typing {
+    animation: none !important;
+    width: auto !important;
+    white-space: normal !important;
+    border-right: none !important;
+    display: block;
+  }
+}
+/* ================= FIX TYPING EN MÓVILES ================= */
+.hero-contenido h1.do-typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 3px solid rgba(255,255,255,0.75);
+  animation:
+    typingFixed var(--typingDuration, 4s) steps(var(--typingSteps, 30), end) forwards,
+    blink 0.8s infinite !important;
+}
+
+@keyframes typingFixed {
+  from { width: 0; }
+  to   { width: var(--textWidth); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-contenido h1,
+  .hero-contenido h1.do-typing {
+    animation: none !important;
+    width: auto !important;
+    border-right: none !important;
+    white-space: normal !important;
+  }
+}
